@@ -17,11 +17,12 @@ jobs:
         with:
           node-version: 18
 
+      - name: Change to project directory
+        working-directory: ./   # ensure this points to the folder containing package.json
+
       - name: Install dependencies
         run: npm install
+        working-directory: ./   # same here
 
       - name: Build Docker image
         run: docker build -t devops-app .
-
-      - name: Test app (optional)
-        run: echo "Add your tests here"
